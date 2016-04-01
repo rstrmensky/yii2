@@ -184,7 +184,7 @@ class MaskedInput extends InputWidget
             $js .= ucfirst(self::PLUGIN_NAME) . '.extendAliases(' . Json::htmlEncode($this->aliases) . ');';
         }
         $id = $this->options['id'];
-        $js .= '$("#' . $id . '").' . self::PLUGIN_NAME . '(' . $this->_hashVar . ');';
+        $js .= '$("input#' . $id . '").each(function(){ $(this).' . self::PLUGIN_NAME . '(' . $this->_hashVar . '); });';
         MaskedInputAsset::register($view);
         $view->registerJs($js);
     }
